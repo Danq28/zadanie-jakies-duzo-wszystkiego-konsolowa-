@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,5 +44,20 @@ class LiczbyTest {
     void medianaTestJezliPustaTablicy(){
         Liczby liczby = new Liczby(new ArrayList<>(List.of()));
         Assertions.assertEquals(0,liczby.mediana());
+    }
+    @Test
+    void dominantaTestJezeliNieMaDominanty(){
+        Liczby liczby = new Liczby(new ArrayList<>(List.of(2,2,3,3,4,4)));
+        Assertions.assertEquals(null,liczby.Listadominanta());
+    }
+    @Test
+    void dominantaTestJezeliJednaDominanta(){
+        Liczby liczby=new Liczby(new ArrayList<>(List.of(2,3,3,4)));
+        Assertions.assertEquals(new ArrayList<>(List.of(3)),liczby.Listadominanta());
+    }
+    @Test
+    void dominantaTestJezeliDwieDominanty(){
+        Liczby liczby = new Liczby(new ArrayList<>(List.of(2,2,3,3,4,5)));
+        Assertions.assertEquals(new ArrayList<>(List.of(2,3)),liczby.Listadominanta());
     }
 }

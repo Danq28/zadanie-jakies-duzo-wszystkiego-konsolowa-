@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Random;
 
 public class Liczby {
@@ -40,5 +41,28 @@ public class Liczby {
             }else{
                 return liczby.get(liczby.size()/2);
             }
+        }
+        private int ileRazyWystapilo(int element){
+            int ile =0;
+            for (int i = 0; i < liczby.size(); i++) {
+                if(liczby.get(i)==element){
+                    ile++;
+                }
+            }
+            return ile;
+        }
+        public ArrayList<Integer> Listadominanta(){
+            ArrayList<Integer> dominanty = new ArrayList<>();
+            int najwiecejRazy=0;
+            HashSet<Integer>liczbyBezPowtorzen = new HashSet<>(liczby);
+           for (Integer element: liczbyBezPowtorzen){
+                if(najwiecejRazy<ileRazyWystapilo(element)){
+                    najwiecejRazy=ileRazyWystapilo(element);
+                    dominanty.clear();
+                    dominanty.add(element);
+                }
+           }
+
+            return dominanty;
         }
 }
