@@ -28,4 +28,20 @@ class LiczbyTest {
         Liczby liczby = new Liczby(new ArrayList<>(List.of(2,5)));
         Assertions.assertEquals(3.5,liczby.srednia());
     }
+    @Test
+    void medianaTestJezeliParzystaDlugoscTablicy(){
+        Liczby liczby = new Liczby(new ArrayList<>(List.of(1,2,0,4)));
+        Assertions.assertEquals(1.5,liczby.mediana());
+
+    }
+    @Test
+    void medianaTestJezliNieParzystaDlugoscTablicy(){
+        Liczby liczby = new Liczby(new ArrayList<>(List.of(1,2,0,4,5)));
+        Assertions.assertEquals(2,liczby.mediana());
+    }
+    @Test
+    void medianaTestJezliPustaTablicy(){
+        Liczby liczby = new Liczby(new ArrayList<>(List.of()));
+        Assertions.assertEquals(0,liczby.mediana());
+    }
 }

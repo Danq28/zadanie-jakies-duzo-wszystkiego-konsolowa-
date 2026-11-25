@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Liczby {
@@ -28,4 +29,16 @@ public class Liczby {
 
         return wynik/(double)liczby.size();
     }
+        public double mediana(){
+        if(liczby.size()==0){
+            return 0; //skibidi
+        }
+            Collections.sort(liczby);
+            if(liczby.size()%2==0){
+                int srodek = liczby.size()/2;
+                return (double)(liczby.get(srodek)+liczby.get(srodek-1))/2;
+            }else{
+                return liczby.get(liczby.size()/2);
+            }
+        }
 }
